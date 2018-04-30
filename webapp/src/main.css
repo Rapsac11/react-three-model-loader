@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+
+html, body, .content, #app {
+  background-color: #FFF;
+  font-family: 'Oxygen', sans-serif !important;
+  height: 100%;
+  margin: 0;
+}
