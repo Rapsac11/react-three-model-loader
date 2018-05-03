@@ -43,7 +43,8 @@ export default function (state = initialState, {type, payload}) {
     case LOAD_MODEL: {
       return {
         ...state,
-        loadedObject: payload
+        loadedObject: {...state.loadedObject, [payload['1']]: payload['0']}
+
       }
     }
     default:

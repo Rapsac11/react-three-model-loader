@@ -17,16 +17,16 @@ export const sampleThunkedAction = (item) => dispatch => {
     })
 }
 
-export const loadModel = () => dispatch => {
+export const loadModel = (url, name) => dispatch => {
   let loader = new THREE.JSONLoader();
-  loader.load( 'https://s3-ap-southeast-2.amazonaws.com/three.json.zonemodel/ZoneModel.json', function ( geometry ) {
+  loader.load(url, function ( geometry ) {
     var loadedObject = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial({
         vertexColors : THREE.FaceColors,
     }));
     console.log(loadedObject.material)
     dispatch({
       type: LOAD_MODEL,
-      payload: loadedObject
+      payload: [loadedObject, name]
     })
   })
 }

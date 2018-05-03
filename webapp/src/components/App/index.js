@@ -5,9 +5,6 @@ import Wrapper from '../Wrapper'
 
 class App extends Component {
 
-  componentWillMount(){
-    this.props.loadModel()
-  }
 
   render() {
     return (

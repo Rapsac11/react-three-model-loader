@@ -23,8 +23,6 @@ const middleWare = [thunk, routerMiddleware(history)]
 let store = applyMiddleware(...middleWare)(createStore)(reducer)
 
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
