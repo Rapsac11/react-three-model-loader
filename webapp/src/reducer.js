@@ -1,53 +1,9 @@
-import {
-  SAMPLE_ACTION,
-  SAMPLE_THUNKED_ACTION,
-  LOAD_MODEL
-} from './actions'
+import { combineReducers } from 'redux'
 
-const initialState = {
-  startDate: "",
-  endDate: "",
-  station: {'name': 'Sydney - Observatory Hill', 'number': 66062},
-  weatherDataTypes: [
-    {value: "bom id", label: "bom id"}
-  ],
-  obsDataTypes: [
-  ],
-  interval: 10,
-  stationList: [],
-  mapCentre: [-33.854944, 151.225610],
-  searchedLocations : null,
-  selectedLocation: null,
-  searchText: "",
-  nearbyStations : [],
-  obsModalOpen: false,
-  presetSelected: 'Select',
-  visibleMapLayers: ['Weather Station'],
-  loadedObject: null
-}
+import modelLoaderReducer from './modelLoaderReducer'
+import someOtherReducer from './someOtherReducer'
 
-export default function (state = initialState, {type, payload}) {
-  switch (type) {
-    case SAMPLE_ACTION: {
-      return {
-        ...state,
-        loadedObject: payload
-      }
-    }
-    case SAMPLE_THUNKED_ACTION: {
-      return {
-        ...state,
-        loadedObject: payload
-      }
-    }
-    case LOAD_MODEL: {
-      return {
-        ...state,
-        loadedObject: {...state.loadedObject, [payload['1']]: payload['0']}
-
-      }
-    }
-    default:
-      return state
-  }
-}
+export default combineReducers({
+  modelLoaderReducer,
+  someOtherReducer
+})

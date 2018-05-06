@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'react-emotion';
 import SampleThreeComponent from '../SampleThreeComponent'
 import LoadedModel from '../LoadedModel'
+import ControlPanel from '../ControlPanel'
 
 class Wrapper extends Component {
 
@@ -31,6 +32,7 @@ class Wrapper extends Component {
       <div>
         <Container>
           <SampleThreeComponent />
+          <ControlPanel />
         </Container>
       </div>
     );

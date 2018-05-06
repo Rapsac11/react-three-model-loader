@@ -1,21 +1,6 @@
 import * as THREE from 'three'
-import ZoneModel from './components/models/ZoneModel.json'
 
-export const SAMPLE_ACTION = 'SAMPLE_ACTION'
-export const SAMPLE_THUNKED_ACTION = 'SAMPLE_THUNKED_ACTION'
 export const LOAD_MODEL = 'LOAD_MODEL'
-
-export const sampleAction = item => ({
-  type: sampleAction,
-  payload: item
-})
-
-export const sampleThunkedAction = (item) => dispatch => {
-    dispatch({
-      type: sampleThunkedAction,
-      payload: item
-    })
-}
 
 export const loadModel = (url, name) => dispatch => {
   let loader = new THREE.JSONLoader();
@@ -29,4 +14,23 @@ export const loadModel = (url, name) => dispatch => {
       payload: [loadedObject, name]
     })
   })
+}
+
+
+const initialState = {
+  loadedObject: null
+}
+
+export default function (state = initialState, {type, payload}) {
+  switch (type) {
+    case LOAD_MODEL: {
+      return {
+        ...state,
+        loadedObject: {...state.loadedObject, [payload['1']]: payload['0']}
+
+      }
+    }
+    default:
+      return state
+  }
 }
