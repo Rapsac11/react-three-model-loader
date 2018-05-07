@@ -44,6 +44,7 @@ class ThreeDModel extends Component {
       } else {
         return (
           <mesh
+          rotation={new THREE.Euler(-Math.PI / 2,0,0)}
             >
               <geometry
                   faces={ data[name].geometry.faces }

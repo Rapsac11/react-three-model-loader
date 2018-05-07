@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'react-emotion';
 import { connect } from 'react-redux';
-import { updateControls } from '../../actions'
 import Wrapper from '../Wrapper'
 import ControlledItem from '../ControlledItem'
 
@@ -46,7 +45,5 @@ export default connect(
   state => ({
     displayVariables: state.someOtherReducer.displayVariables
   }),
-  {
-    updateControls
-  }
+  null
 )(ControlPanel)

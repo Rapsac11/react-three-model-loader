@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadModel } from '../../actions'
 import Wrapper from '../Wrapper'
 
 class App extends Component {
@@ -16,8 +15,5 @@ class App extends Component {
 }
 
 export default connect(
-  null,
-  {
-    loadModel
-  }
+  null,null
 )(App)
