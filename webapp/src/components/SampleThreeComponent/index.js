@@ -3,13 +3,16 @@ import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 import { connect } from'react-redux';
 import ThreeDModel from '../ThreeDModel';
-import { loadModel } from '../../modelLoaderReducer'
+import { loadModel, loadModelLocally } from '../../modelLoaderReducer'
 
 const OrbitControls = require('../../util/three-orbit-controls.js')(THREE)
 
 class SampleThreeComponent extends Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      loadedModel: null
+    }
     this.cameraPosition = new THREE.Vector3(0, 400, 100);
     this.cameraQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0.9, 0, 0), -Math.PI / 2);
   }
@@ -20,6 +23,11 @@ class SampleThreeComponent extends Component {
       'https://s3-ap-southeast-2.amazonaws.com/three.json.zonemodel/ZoneModel.json',
       'dummy'
     )
+    loadModelLocally(
+      'https://s3-ap-southeast-2.amazonaws.com/three.json.zonemodel/ZoneModel.json',
+      'dummy'
+    )
+    .then(loadedObject => {console.log(loadedObject); this.setState({loadedModel: loadedObject})})
   }
 
   componentDidMount() {
@@ -34,6 +42,7 @@ class SampleThreeComponent extends Component {
 
   render() {
     const { model, displayVariables } = this.props;
+    const { loadedModel } = this.state
     const width = window.innerWidth;
     const height = 400;
     const aspectratio = width / height;
@@ -60,7 +69,7 @@ class SampleThreeComponent extends Component {
               intensity={1.5}
               position={new THREE.Vector3(0, 0, 60)}
             />
-            <ThreeDModel data={model} name='dummy'/>
+            <ThreeDModel data={loadedModel} name='dummy'/>
             <mesh
               key={THREE.Math.generateUUID()}
               rotation={new THREE.Euler(-Math.PI / 2,0,0)}
