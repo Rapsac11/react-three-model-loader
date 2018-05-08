@@ -18,11 +18,7 @@ class SampleThreeComponent extends Component {
   }
 
   componentWillMount(){
-    const { loadModel } = this.props
-    loadModel(
-      'https://s3-ap-southeast-2.amazonaws.com/three.json.zonemodel/ZoneModel.json',
-      'dummy'
-    )
+    
     loadModelLocally(
       'https://s3-ap-southeast-2.amazonaws.com/three.json.zonemodel/ZoneModel.json',
       'dummy'

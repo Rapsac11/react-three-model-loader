@@ -2,7 +2,7 @@
   "name": "react-three-model-loader",
   "version": "1.0.0",
   "description": "Load 3D JSON models with three + react + redux",
-  "main": "index.js",
+  "main": "./lib/react-three-model-loader.js",
   "scripts": {
     "dev": "node -r babel-register index.js",
     "build": "webpack -p",

@@ -27,7 +27,7 @@ export const loadModel = (url, name) => dispatch => {
     }));
     console.log(loadedObject)
     dispatch({
-      type: LOAD_MODEL,
+      type: 'LOAD_MODEL',
       payload: [loadedObject, name]
     })
   })
@@ -40,7 +40,7 @@ const initialState = {
 
 export default function (state = initialState, {type, payload}) {
   switch (type) {
-    case LOAD_MODEL: {
+    case 'LOAD_MODEL': {
       return {
         ...state,
         loadedObject: {...state.loadedObject, [payload['1']]: payload['0']}
