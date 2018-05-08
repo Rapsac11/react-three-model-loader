@@ -19,7 +19,7 @@ import * as THREE from 'three';
 import { loadModelLocally } from 'react-three-model-loader'
 ```
 
-`loadModelLocally` returns a Promise containing a three.js object. It takes in a url and a name and is used like so:
+`loadModelLocally()` returns a Promise containing a three.js object. It takes in a url and a name and is used like so:
 
 ```
 componentDidMount(){
@@ -36,7 +36,7 @@ import { connect } from 'react-redux'
 import { loadModel } from 'react-three-model-loader'
 ```
 
-`loadModel` is an Action Creator that will place a three.js object in the global store. In order for this to work you will need to combine the `modelLoaderReducer` provided in this package with the local reducer. It also takes in a url and a name and is used like so:
+`loadModel()` is an Action Creator that will place a three.js object in the global store. In order for this to work you will need to combine the `modelLoaderReducer` provided in this package with the local reducer. It also takes in a url and a name and is used like so:
 
 ```
 componentDidMount(){
